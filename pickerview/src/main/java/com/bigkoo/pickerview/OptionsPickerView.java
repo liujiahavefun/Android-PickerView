@@ -10,7 +10,7 @@ import com.bigkoo.pickerview.view.BasePickerView;
 import com.bigkoo.pickerview.model.IPickerViewData;
 import com.bigkoo.pickerview.view.WheelOptions;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 条件选择器
@@ -42,18 +42,19 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         final View optionspicker = findViewById(R.id.optionspicker);
         wheelOptions = new WheelOptions(optionspicker);
     }
-    public void setPicker(ArrayList<T> optionsItems) {
+    public void setPicker(List<T> optionsItems) {
         wheelOptions.setPicker(optionsItems, null, null, false);
     }
 
-    public void setPicker(ArrayList<T> options1Items,
-                          ArrayList<ArrayList<T>> options2Items, boolean linkage) {
+    public void setPicker(List<T> options1Items,
+                          List<List<T>> options2Items,
+                          boolean linkage) {
         wheelOptions.setPicker(options1Items, options2Items, null, linkage);
     }
 
-    public void setPicker(ArrayList<T> options1Items,
-                          ArrayList<ArrayList<T>> options2Items,
-                          ArrayList<ArrayList<ArrayList<T>>> options3Items,
+    public void setPicker(List<T> options1Items,
+                          List<List<T>> options2Items,
+                          List<List<List<T>>> options3Items,
                           boolean linkage) {
         wheelOptions.setPicker(options1Items, options2Items, options3Items,
                 linkage);
