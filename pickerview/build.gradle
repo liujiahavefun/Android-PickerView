@@ -37,3 +37,6 @@ publish {
     desc = 'fork from Android Picker View, modified for our special purpose and demand'//描述，不重要
     website = 'https://github.com/liujiahavefun/Android-PickerView'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
+
+//build方法
+//android studio 进入terminal：./gradlew clean build bintrayUpload -PbintrayUser=xxx -PbintrayKey=xxx -PdryRun=false
