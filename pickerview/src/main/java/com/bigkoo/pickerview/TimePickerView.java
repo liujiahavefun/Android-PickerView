@@ -145,4 +145,8 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
     public void setTitle(String title){
         tvTitle.setText(title);
     }
+
+    public TextView getTitleTextView(){
+        return tvTitle;
+    }
 }
