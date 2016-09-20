@@ -105,7 +105,7 @@ public class WheelView extends View {
     private int mGravity = Gravity.CENTER;
     private int drawCenterContentStart = 0;//中间选中文字开始绘制位置
     private int drawOutContentStart = 0;//非中间文字开始绘制位置
-    private static final float SCALECONTENT = 0.8F;//非中间文字则用此控制高度，压扁形成3d错觉
+    private static final float SCALECONTENT = 0.9F;//非中间文字则用此控制高度，压扁形成3d错觉
     private static final float CENTERCONTENTOFFSET = 6;//中间文字文字居中需要此偏移值
 
     public WheelView(Context context) {
@@ -218,6 +218,7 @@ public class WheelView extends View {
                 maxTextHeight = textHeight;
             }
         }
+        maxTextHeight += 2;
         itemHeight = lineSpacingMultiplier * maxTextHeight;
     }
 
