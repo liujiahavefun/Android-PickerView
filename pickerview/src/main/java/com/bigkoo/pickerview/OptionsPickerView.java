@@ -3,6 +3,7 @@ package com.bigkoo.pickerview;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.view.BasePickerView;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 public class OptionsPickerView<T> extends BasePickerView implements View.OnClickListener {
     WheelOptions<T> wheelOptions;
-    private View btnSubmit, btnCancel;
+    private Button btnSubmit, btnCancel;
     private TextView tvTitle;
     private OnOptionsSelectListener optionsSelectListener;
     private static final String TAG_SUBMIT = "submit";
@@ -25,15 +26,18 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     public OptionsPickerView(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.pickerview_options, contentContainer);
+
         // -----确定和取消按钮
-        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setTag(TAG_SUBMIT);
-        btnCancel = findViewById(R.id.btnCancel);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setTag(TAG_CANCEL);
         btnSubmit.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
+
         //顶部标题
         tvTitle = (TextView) findViewById(R.id.tvTitle);
+
         // ----转轮
         final View optionspicker = findViewById(R.id.optionspicker);
         wheelOptions = new WheelOptions(optionspicker);
@@ -146,5 +150,17 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
 
     public void setTitle(String title){
         tvTitle.setText(title);
+    }
+
+    public TextView getTitleTextView(){
+        return tvTitle;
+    }
+
+    public Button getSubmitBtn(){
+        return btnSubmit;
+    }
+
+    public  Button getCancelBtn(){
+        return btnCancel;
     }
 }

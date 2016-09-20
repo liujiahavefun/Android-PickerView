@@ -2,9 +2,9 @@
     <!-- 顶部按钮栏高度 -->
     <dimen name="pickerview_topbar_height">44dp</dimen>
     <!-- 顶部按钮paddingLeft -->
-    <dimen name="pickerview_topbar_paddingleft">10dp</dimen>
+    <dimen name="pickerview_topbar_paddingleft">20dp</dimen>
     <!-- 顶部按钮paddingRight -->
-    <dimen name="pickerview_topbar_paddingright">30dp</dimen>
+    <dimen name="pickerview_topbar_paddingright">20dp</dimen>
     <!-- 顶部按钮文字大小 -->
     <dimen name="pickerview_topbar_btn_textsize">16sp</dimen>
     <dimen name="pickerview_topbar_title_textsize">16sp</dimen>
