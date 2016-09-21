@@ -25,12 +25,10 @@ public class WheelTime {
 	private WheelView wv_mins;
 
 	private Type type;
-	public static final int DEFULT_START_YEAR = 1990;
+	public static final int DEFULT_START_YEAR = 1949;
 	public static final int DEFULT_END_YEAR = 2100;
 	private int startYear = DEFULT_START_YEAR;
 	private int endYear = DEFULT_END_YEAR;
-
-
 
 	public WheelTime(View view) {
 		super();
@@ -57,6 +55,7 @@ public class WheelTime {
 		final List<String> list_little = Arrays.asList(months_little);
 
 		Context context = view.getContext();
+
 		// 年
 		wv_year = (WheelView) view.findViewById(R.id.year);
 		wv_year.setAdapter(new NumericWheelAdapter(startYear, endYear));// 设置"年"的显示数据
@@ -86,12 +85,13 @@ public class WheelTime {
 		wv_day.setLabel(context.getString(R.string.pickerview_day));
 		wv_day.setCurrentItem(day - 1);
 
-
+        // 时
         wv_hours = (WheelView)view.findViewById(R.id.hour);
 		wv_hours.setAdapter(new NumericWheelAdapter(0, 23));
 		wv_hours.setLabel(context.getString(R.string.pickerview_hours));// 添加文字
 		wv_hours.setCurrentItem(h);
 
+        // 分
 		wv_mins = (WheelView)view.findViewById(R.id.min);
 		wv_mins.setAdapter(new NumericWheelAdapter(0, 59));
 		wv_mins.setLabel(context.getString(R.string.pickerview_minutes));// 添加文字
@@ -104,17 +104,14 @@ public class WheelTime {
 				int year_num = index + startYear;
 				// 判断大小月及是否闰年,用来确定"日"的数据
 				int maxItem = 30;
-				if (list_big
-						.contains(String.valueOf(wv_month.getCurrentItem() + 1))) {
+				if (list_big.contains(String.valueOf(wv_month.getCurrentItem() + 1))) {
 					wv_day.setAdapter(new NumericWheelAdapter(1, 31));
 					maxItem = 31;
-				} else if (list_little.contains(String.valueOf(wv_month
-						.getCurrentItem() + 1))) {
+				} else if (list_little.contains(String.valueOf(wv_month.getCurrentItem() + 1))) {
 					wv_day.setAdapter(new NumericWheelAdapter(1, 30));
 					maxItem = 30;
 				} else {
-					if ((year_num % 4 == 0 && year_num % 100 != 0)
-							|| year_num % 400 == 0){
+					if ((year_num % 4 == 0 && year_num % 100 != 0) || year_num % 400 == 0){
 						wv_day.setAdapter(new NumericWheelAdapter(1, 29));
 						maxItem = 29;
 					}
@@ -128,6 +125,7 @@ public class WheelTime {
 				}
 			}
 		};
+
 		// 添加"月"监听
 		OnItemSelectedListener wheelListener_month = new OnItemSelectedListener() {
 			@Override
@@ -142,9 +140,7 @@ public class WheelTime {
 					wv_day.setAdapter(new NumericWheelAdapter(1, 30));
 					maxItem = 30;
 				} else {
-					if (((wv_year.getCurrentItem() + startYear) % 4 == 0 && (wv_year
-							.getCurrentItem() + startYear) % 100 != 0)
-							|| (wv_year.getCurrentItem() + startYear) % 400 == 0){
+					if (((wv_year.getCurrentItem() + startYear) % 4 == 0 && (wv_year.getCurrentItem() + startYear) % 100 != 0) || (wv_year.getCurrentItem() + startYear) % 400 == 0){
 						wv_day.setAdapter(new NumericWheelAdapter(1, 29));
 						maxItem = 29;
 					}
@@ -189,12 +185,12 @@ public class WheelTime {
             wv_hours.setVisibility(View.GONE);
             wv_mins.setVisibility(View.GONE);
 		}
+
 		wv_day.setTextSize(textSize);
 		wv_month.setTextSize(textSize);
 		wv_year.setTextSize(textSize);
 		wv_hours.setTextSize(textSize);
 		wv_mins.setTextSize(textSize);
-
 	}
 
 	/**
@@ -208,6 +204,7 @@ public class WheelTime {
 		wv_hours.setCyclic(cyclic);
 		wv_mins.setCyclic(cyclic);
 	}
+
 	public String getTime() {
 		StringBuffer sb = new StringBuffer();
 			sb.append((wv_year.getCurrentItem() + startYear)).append("-")

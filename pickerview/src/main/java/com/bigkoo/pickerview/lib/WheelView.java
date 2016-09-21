@@ -218,7 +218,7 @@ public class WheelView extends View {
                 maxTextHeight = textHeight;
             }
         }
-        maxTextHeight += 2;
+        //maxTextHeight += 2; //liujia: 似乎可以增加每行的padding，但会导致错位
         itemHeight = lineSpacingMultiplier * maxTextHeight;
     }
 
