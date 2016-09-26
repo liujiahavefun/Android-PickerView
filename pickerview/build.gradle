@@ -33,10 +33,11 @@ publish {
     userOrg = 'liujiahavefun'//bintray.com用户名
     groupId = 'com.liujiahavefun'//jcenter上的路径
     artifactId = 'pickerview'//项目名称
-    publishVersion = '2.0.4'//版本号
+    publishVersion = '2.0.6'//版本号
     desc = 'fork from Android Picker View, modified for our special purpose and demand'//描述，不重要
     website = 'https://github.com/liujiahavefun/Android-PickerView'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
 
 //build方法
 //android studio 进入terminal：./gradlew clean build bintrayUpload -PbintrayUser=xxx -PbintrayKey=xxx -PdryRun=false
+//不用开代理，要去https://bintray.com/bintray/jcenter  先signin一下，不如上传binary可能失败
