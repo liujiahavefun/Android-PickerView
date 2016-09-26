@@ -63,7 +63,7 @@ public class WheelView extends View {
     int dividerColor;
 
     // 条目间距倍数
-    static final float lineSpacingMultiplier = 1.4F;
+    static final float lineSpacingMultiplier = 1.8F;
     boolean isLoop;
 
     // 第一条线Y坐标值
@@ -84,7 +84,7 @@ public class WheelView extends View {
     int change;
 
     // 显示几个条目
-    int itemsVisible = 11;
+    int itemsVisible = 11; //必须为奇数！
 
     int measuredHeight;
     int measuredWidth;
@@ -106,7 +106,7 @@ public class WheelView extends View {
     private int drawCenterContentStart = 0;//中间选中文字开始绘制位置
     private int drawOutContentStart = 0;//非中间文字开始绘制位置
     private static final float SCALECONTENT = 0.9F;//非中间文字则用此控制高度，压扁形成3d错觉
-    private static final float CENTERCONTENTOFFSET = 6;//中间文字文字居中需要此偏移值
+    private static final float CENTERCONTENTOFFSET = 2;//中间文字文字居中需要此偏移值
 
     public WheelView(Context context) {
         this(context, null);
@@ -218,7 +218,7 @@ public class WheelView extends View {
                 maxTextHeight = textHeight;
             }
         }
-        //maxTextHeight += 2; //liujia: 似乎可以增加每行的padding，但会导致错位
+
         itemHeight = lineSpacingMultiplier * maxTextHeight;
     }
 
