@@ -3,6 +3,7 @@ package com.bigkoo.pickerviewdemo;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -179,7 +180,7 @@ public class MainActivity extends Activity {
     }
 
     public static String getTime(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", new Locale("zh", "CN"));
         return format.format(date);
     }
 
