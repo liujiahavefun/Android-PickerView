@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import com.bigkoo.pickerview.R;
 import com.bigkoo.pickerview.TimePickerView.Type;
@@ -14,9 +15,8 @@ import com.bigkoo.pickerview.listener.OnItemSelectedListener;
 import android.content.Context;
 import android.view.View;
 
-
 public class WheelTime {
-	public static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	public static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", new Locale("zh", "CN"));
 	private View view;
 	private WheelView wv_year;
 	private WheelView wv_month;
@@ -195,7 +195,7 @@ public class WheelTime {
 
 	/**
 	 * 设置是否循环滚动
-	 * @param cyclic
+	 * @param cyclic 是否循环
 	 */
 	public void setCyclic(boolean cyclic){
 		wv_year.setCyclic(cyclic);
